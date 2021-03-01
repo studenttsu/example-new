@@ -76,7 +76,7 @@ h2 {
 
 .hero {
   position: relative;
-  z-index: 4;
+  z-index: 2;
   max-width: 400px;
 }
 
