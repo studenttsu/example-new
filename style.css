@@ -16,6 +16,7 @@ body {
   color: #333333;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  min-width: 320px;
 }
 
 .container {
@@ -54,31 +55,31 @@ h2 {
   padding: 30px 15px 130px;
 }
 
-.header-top {
+.header__top {
   margin-bottom: 120px;
+  position: relative;
+  z-index: 3;
 }
 
-.header .social {
+.header__social {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.header-girl {
+.header__girl {
   position: absolute;
   right: 90px;
   bottom: 0;
-  max-width: 524px;
-  width: 100%;
-  z-index: 3;
-
+  z-index: 1;
+  opacity: 1;
+  transition: 0.3s opacity;
 }
 
-.hero {
-  position: relative;
-  z-index: 2;
-  max-width: 400px;
+.header-girl {
+  max-width: 524px;
+  width: 100%;
 }
 
 .header-girl:before {
@@ -100,8 +101,18 @@ h2 {
   display: block;
 }
 
+.hero {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+}
+
 .section {
   padding: 50px 0;
+}
+
+.section__grey {
+  background-color: #ccc;
 }
 
 .about {
@@ -117,4 +128,107 @@ h2 {
 .about-video {
   max-width: 442px;
   width: 100%;
+}
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__nav {
+  margin-bottom: 30px;
+}
+
+/* Navigation */
+
+.navigation__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navigation__item:not(:last-child) {
+  margin-right: 28px;
+}
+
+.master-card__photo {
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.master-card__photo:before,
+.master-card__photo:after {
+  opacity: 0;
+  transition: .15s opacity;
+  position: absolute;
+}
+
+.master-card__photo:before {
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;  
+  z-index: 1;
+}
+
+.master-card__photo:hover:before {
+  opacity: 0.5;
+}
+
+.master-card__photo:after {
+  content: 'Записаться к мастеру';
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 120px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.master-card__photo:hover:after {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .header__girl {
+    opacity: 0.6;
+  }
+}
+
+/* Large Devices, Wide Screens */ 
+@media only screen and (max-width: 1280px) { 
+} 
+/* Medium Devices, Desktops */ 
+@media only screen and (max-width: 992px) { 
+} 
+/* Small Devices, Tablets */ 
+@media only screen and (max-width: 768px) { 
+} 
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width: 480px) { 
+} 
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width: 320px) { 
+}
+
+@media print {
+  .header__girl {
+    display: none;
+  }
 }
