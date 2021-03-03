@@ -1,9 +1,15 @@
+@import 'libs';
+
 html {
   box-sizing: border-box;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+::placeholder {
+  color: grey;
 }
 
 html,
@@ -44,37 +50,52 @@ h2 {
   flex-shrink: 0;
 }
 
+/* Navigation */
+.navigation {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 28px;
+  }
+}
+
 .header {
   background-color: #F8F6F7;
   position: relative;
   overflow: hidden;
-}
 
-.header .container {
-  position: relative;
-  padding: 30px 15px 130px;
-}
+  & > .container {
+    position: relative;
+    padding: 30px 15px 130px;
+  }
 
-.header__top {
-  margin-bottom: 120px;
-  position: relative;
-  z-index: 3;
-}
+  &__top {
+    margin-bottom: 120px;
+    position: relative;
+    z-index: 3;
+  }
 
-.header__social {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  &__social {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-.header__girl {
-  position: absolute;
-  right: 90px;
-  bottom: 0;
-  z-index: 1;
-  opacity: 1;
-  transition: 0.3s opacity;
+  &__girl {
+    position: absolute;
+    right: 90px;
+    bottom: 0;
+    z-index: 1;
+    opacity: 1;
+    transition: 0.3s opacity;
+  }
 }
 
 .header-girl {
@@ -139,20 +160,6 @@ h2 {
   margin-bottom: 30px;
 }
 
-/* Navigation */
-
-.navigation__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.navigation__item:not(:last-child) {
-  margin-right: 28px;
-}
-
 .master-card__photo {
   height: 300px;
   background-position: center;
@@ -205,30 +212,4 @@ h2 {
   opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
-  .header__girl {
-    opacity: 0.6;
-  }
-}
-
-/* Large Devices, Wide Screens */ 
-@media only screen and (max-width: 1280px) { 
-} 
-/* Medium Devices, Desktops */ 
-@media only screen and (max-width: 992px) { 
-} 
-/* Small Devices, Tablets */ 
-@media only screen and (max-width: 768px) { 
-} 
-/* Extra Small Devices, Phones */ 
-@media only screen and (max-width: 480px) { 
-} 
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width: 320px) { 
-}
-
-@media print {
-  .header__girl {
-    display: none;
-  }
-}
+@import 'media';
