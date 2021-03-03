@@ -46,7 +46,6 @@ function serve() {
   watch('src/**/*.html', html);
 }
 
-
 function copy() {
   return src(['src/img/**/*.*', 'src/css/**/*.css'], {
     base: 'src/',
@@ -57,5 +56,5 @@ function cleanDist() {
   return del('dist/**/*', { force: true });
 }
 
-task('default', series(parallel(browsersync, serve)));
-task('build', series(cleanDist, buildSass, html, copy));
+exports.build = series(cleanDist, buildSass, html, copy);
+exports.default = parallel(browsersync, serve);
