@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "build": "cross-env NODE_ENV=production gulp build"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,6 @@
   "devDependencies": {
     "autoprefixer": "^10.2.4",
     "browser-sync": "^2.26.14",
-    "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
