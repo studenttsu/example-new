@@ -29,7 +29,7 @@ class TabsManager {
   } 
 } 
 
-class TabItem { 
+export class TabItem { 
   constructor(link, content) { 
     this.link = link; 
     this.content = content; 
@@ -52,3 +52,5 @@ class TabItem {
     this.content.classList.toggle('active', activate); 
   } 
 } 
+
+export default TabsManager;
