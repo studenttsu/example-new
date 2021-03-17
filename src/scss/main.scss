@@ -50,6 +50,22 @@ h2 {
   flex-shrink: 0;
 }
 
+.tabs { 
+  &__links { 
+    .active { 
+      color: red; 
+    } 
+  } 
+   
+  &__item { 
+    display: none; 
+     
+    &.active { 
+      display: block; 
+    } 
+  } 
+}
+
 /* Navigation */
 .navigation {
   &__list {
