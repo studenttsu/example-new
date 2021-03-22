@@ -16,8 +16,8 @@ class TabsManager {
       this.tabs.push(tab); 
        
       tab.onClick(() => this.activateTab(tab));   
-    } 
-  } 
+    }
+  }
    
   activateTab(tab) { 
     if (this.activeTab) { 

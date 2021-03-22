@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import TabsManager from './tabs.js';
 import UserApi from './api/user-api.js';
 
