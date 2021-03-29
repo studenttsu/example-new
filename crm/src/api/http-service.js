@@ -1,3 +1,10 @@
+import TokenService from '../services/token-service';
+
+const baseHeaders = {
+  'Content-Type': 'application/json',
+  'Authorization': `Bearer ${TokenService.getToken()}`
+};
+
 export class HttpService {
 
   constructor(baseApiPath) {
@@ -5,8 +12,11 @@ export class HttpService {
   }
 
   async get(path) {
-    const response = await fetch(`${this.baseApi}/${path}`);
-    return response.json();
+    const response = await fetch(`${this.baseApi}/${path}`, {
+      headers: { ...baseHeaders }
+    });
+
+    return this._handleResponse(response);
   }
 
   async post(path, body) {
@@ -15,11 +25,19 @@ export class HttpService {
     const response = await fetch(`${this.baseApi}/${path}`, {
       method: 'POST',
       body: stringifiedData,
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: baseHeaders
     });
 
-    return response.json();
+    return this._handleResponse(response);
+  }
+
+  async _handleResponse(response) {
+    const parsedData = await response.json();
+
+    if (response.ok) {
+      return parsedData;
+    }
+
+    throw parsedData;
   }
 }

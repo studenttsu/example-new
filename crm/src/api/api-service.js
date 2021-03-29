@@ -19,6 +19,10 @@ export class ApiService extends HttpService {
     return this.post('orders', order);
   }
 
+  login(authData) {
+    return this.post('login', authData);
+  }
+
 }
 
 export default new ApiService();

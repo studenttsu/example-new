@@ -1,3 +1,8 @@
 export default function NotFound() {
-  return 'Страница не найдена';
+  return (
+    <>
+      <h1>404</h1>
+      <p>Страница не найдена</p>
+    </>
+  );
 }
