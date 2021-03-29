@@ -1,4 +1,5 @@
-import TokenService from '../services/token-service';
+import TokenService from './token-service';
+import PubSub from './pubsub';
 
 const baseHeaders = {
   'Content-Type': 'application/json',
@@ -36,6 +37,10 @@ export class HttpService {
 
     if (response.ok) {
       return parsedData;
+    }
+
+    if (response.status === 401) {
+      PubSub.emit('logout');
     }
 
     throw parsedData;

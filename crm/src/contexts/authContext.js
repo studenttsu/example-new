@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import ApiService from '../api/api-service';
 import TokenService from '../services/token-service';
+import PubSub from '../services/pubsub';
 
 // Context
 const AuthContext = createContext();
@@ -25,6 +26,8 @@ function AuthProvider(props) {
       }
     }
   }
+
+  PubSub.on('logout', logout);
 
   function logout() {
     TokenService.removeToken();
