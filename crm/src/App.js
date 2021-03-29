@@ -1,50 +1,59 @@
-import { useEffect, useState } from 'react';
-import Masters from './components/Masters/Masters';
-import MastersForm from './components/MastersForm';
-import MastersContext from './contexts/mastersContext';
-import ApiService from './api/api-service';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
+import Login from './pages/Login';
+import Masters from './pages/Masters';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import './App.scss';
 
 function App() {
-  const [masters, setMaters] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const masters = await ApiService.getMasters();
-      setMaters(masters);
-    }
-
-    fetchData();
-  }, []);
-
-  function createMaster(master) {
-    const { id } = masters[masters.length - 1];
-
-    setMaters(masters.concat([{
-      ...master,
-      id: id + 1
-    }]));
-  }
-
-  function removeMaster(id) {
-    setMaters(masters.filter(m => m.id !== id));
-  }
-
   return (
-    <div className="container">
-        <div className="app">
-          <header>
-            <h1>Beauty Saloon</h1>
-          </header>
-        </div>
+    <Router>
+      <div className="container">
+        <header>
+          <h1>Beauty Saloon</h1>
 
-        <MastersForm onCreate={createMaster} />
-        <br />
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/masters">Masters</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
 
-        <MastersContext.Provider value={{ removeMaster }}>
-          {masters.length === 0 ? <p>Нет данных</p> : <Masters masters={masters} />}          
-        </MastersContext.Provider>
+        <main>
+          <Switch>
+          <Route exact path="/">
+              <Home />
+            </Route>
+
+            <Route path="/masters">
+              <Masters />
+            </Route>
+
+            <Route path="/login">
+              <Login />
+            </Route>            
+
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </main>
       </div>
+    </Router>
   );
 }
 
