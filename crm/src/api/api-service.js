@@ -1,5 +1,5 @@
 import { API_PATH } from '../constants';
-import { HttpService } from './http-service';
+import { HttpService } from '../services/http-service';
 
 export class ApiService extends HttpService {
 
@@ -17,6 +17,10 @@ export class ApiService extends HttpService {
 
   createOrder(order) {
     return this.post('orders', order);
+  }
+
+  login(authData) {
+    return this.post('login', authData);
   }
 
 }
