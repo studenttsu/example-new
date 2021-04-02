@@ -1,0 +1,35 @@
+{
+  "name": "example-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "stylelint": "stylelint **/*.scss",
+    "stylelint:fix": "stylelint **/*.scss --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint && npm run stylelint",
+      "pre-push": "npm run eslint:fix && npm run stylelint:fix"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studenttsu/example-new.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/studenttsu/example-new/issues"
+  },
+  "homepage": "https://github.com/studenttsu/example-new#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "husky": "^6.0.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-scss": "^3.19.0"
+  }
+}
