@@ -4,7 +4,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -19,7 +21,7 @@ body,
 }
 
 body {
-  color: #333333;
+  color: #333;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   min-width: 320px;
@@ -50,20 +52,20 @@ h2 {
   flex-shrink: 0;
 }
 
-.tabs { 
-  &__links { 
-    .active { 
-      color: red; 
-    } 
-  } 
-   
-  &__item { 
-    display: none; 
-     
-    &.active { 
-      display: block; 
-    } 
-  } 
+.tabs {
+  &__links {
+    .active {
+      color: red;
+    }
+  }
+
+  &__item {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
 }
 
 /* Navigation */
@@ -82,7 +84,7 @@ h2 {
 }
 
 .header {
-  background-color: #F8F6F7;
+  background-color: #f8f6f7;
   position: relative;
   overflow: hidden;
 
@@ -119,11 +121,11 @@ h2 {
   width: 100%;
 }
 
-.header-girl:before {
+.header-girl::before {
   content: '';
   width: 472px;
   height: 472px;
-  background-color: #FB9475;
+  background-color: #fb9475;
   display: block;
   border-radius: 50%;
   position: absolute;
@@ -187,28 +189,28 @@ h2 {
   cursor: pointer;
 }
 
-.master-card__photo:before,
-.master-card__photo:after {
+.master-card__photo::before,
+.master-card__photo::after {
   opacity: 0;
-  transition: .15s opacity;
+  transition: 0.15s opacity;
   position: absolute;
 }
 
-.master-card__photo:before {
+.master-card__photo::before {
   content: '';
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: #000;  
+  background-color: #000;
   z-index: 1;
 }
 
-.master-card__photo:hover:before {
+.master-card__photo:hover::before {
   opacity: 0.5;
 }
 
-.master-card__photo:after {
+.master-card__photo::after {
   content: 'Записаться к мастеру';
   font-weight: 500;
   color: #fff;
@@ -224,7 +226,7 @@ h2 {
   z-index: 2;
 }
 
-.master-card__photo:hover:after {
+.master-card__photo:hover::after {
   opacity: 1;
 }
 
